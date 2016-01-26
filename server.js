@@ -30,8 +30,8 @@ router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-// more routes for our API will happen here
-/* include routes */
+// ROUTES
+require('./app/components/airport/airport.routes.js');
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
@@ -42,7 +42,7 @@ var mongoose   = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/bears'); // connect to our database
 
 // IMPORT MODELS
-var Bear     = require('./app/models/bear');
+var Airport     = require('./app/components/airport/airport.model.js');
 
 // START THE SERVER
 // =============================================================================
