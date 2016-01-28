@@ -3,11 +3,17 @@ var Schema   = mongoose.Schema;
 
 // create a schema
 var AirportSchema = new Schema({
-	name: String,
-	oaci_code: String,
+	name: {
+		type: String,
+		required: true
+	},
+	oaciCode: {
+		type: String,
+		required: true
+	},
 	coordinates: [String, String], 
-	created_at: Date,
-	updated_at: Date
+	createdAt: Date,
+	updatedAt: Date
 });
 
 // make this available to our users in our Node applications

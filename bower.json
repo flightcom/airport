@@ -1,0 +1,15 @@
+{
+  "name": "airport",
+  "description": "",
+  "main": "server.js",
+  "license": "MIT",
+  "homepage": "https://github.com/flightcom/airport",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

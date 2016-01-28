@@ -1,16 +1,12 @@
-module.directive('aircraftItem', ['AirportService', function(AirportService){
+module.directive('airportItem', ['Airport', function(Airport){
 	return {
 		restrict: 'E',
 		scope: {
-			aircraft: '='
+			airport: '='
 		},
-		template: '<div class="col-xs-4"><span>{{aircraft.name}}</span>' +
-			'<button class="btn btn-primary" ng-click="takeAircraft()">Je pars !</button>' +
+		template: '<div class="col-xs-4"><span>{{airport.name}}</span>' +
+			'<button class="btn btn-primary">J\'y vais !</button>' +
 			'</div>',
-		controller: ['$scope', function($scope) {
-			$scope.takeAircraft = function() {
-				AirportService.takeAircraft($scope.aircraft);
-			}
-		}]
+		controller: ['$scope', function($scope) {}]
 	}
 }]);

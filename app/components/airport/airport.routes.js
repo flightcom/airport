@@ -6,7 +6,10 @@ var AirportRoutes = function(router) {
         .post(function(req, res) {
             
             var airport = new Airport();      // create a new instance of the Airport model
-            airport.name = req.body.name;  // set the airports name (comes from the request)
+            airport.name = req.body.name;
+            airport.oaciCode = req.body.oaciCode;
+            airport.createdAt = new Date();
+            airport.updatedAt = airport.createdAt;
 
             // save the airport and check for errors
             airport.save(function(err) {
@@ -28,7 +31,7 @@ var AirportRoutes = function(router) {
             });
         });
 
-    router.route('/airport/:airport_id')
+    router.route('/airports/:airport_id')
 
         // get the airport with that id (accessed at GET http://localhost:8080/api/airports/:airport_id)
         .get(function(req, res) {
@@ -48,7 +51,9 @@ var AirportRoutes = function(router) {
                 if (err)
                     res.send(err);
 
-                airport.name = req.body.name;  // update the airports info
+                airport.name = req.body.name;
+                airport.oaciCode = req.body.oaciCode;
+                airport.updatedAt = new Date();
 
                 // save the airport
                 airport.save(function(err) {

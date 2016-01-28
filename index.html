@@ -7,11 +7,12 @@
 	</head>
 	<body ng-app="Airport">
 		<main ng-controller="AirportCtrl">
-			<aircraft-item ng-repeat="a in aircrafts" aircraft="a"></aircraft-item>
+			<airport-item ng-repeat="a in airports" airport="a"></airport-item>
 		</main>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-		<script type="text/javascript" src="scripts/app.js"></script>
-		<script type="text/javascript" src="scripts/components/airport/airport.service.js"></script>
-		<script type="text/javascript" src="scripts/components/airport/airport.directive.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="app/components/airport/airport.service.js"></script>
+		<script type="text/javascript" src="app/components/airport/airport.directive.js"></script>
+		<script type="text/javascript" src="node_modules/angular-resource/angular-resource.min.js"></script>
 	</body>
 </html>

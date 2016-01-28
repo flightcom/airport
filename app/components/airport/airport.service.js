@@ -1,15 +1,11 @@
-module.factory('AirportService', function() {
+module.factory('Airport', ['$resource', function($resource) {
 
-	return {
-		getAircrafts: function() {
-			return [
-				{name: 'A320', company: 'Air France'},
-				{name: 'B737', company: 'Delta Airlines'}
-			]
-		},
-		takeAircraft: function(aircraft) {
-			alert('Bon vol sur la compagnie ' + aircraft.company + ' !');
+	return $resource('http://localhost:8080/api/airports/:airportId', {airportId:'@id'}, 
+		{
+			'query': {method: 'GET', isArray: true },
+			'get': {method: 'GET' },
+			'update': {method: 'PUT'}
 		}
-	}
+	);
 
-});
+}]);

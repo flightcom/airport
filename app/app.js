@@ -1,6 +1,6 @@
-var module = angular.module('Airport', []);
+var module = angular.module('Airport', ['ngResource']);
 
-module.controller('AirportCtrl', ['$scope', 'AirportService', function($scope, AirportService){
-	$scope.aircrafts = AirportService.getAircrafts();
+module.controller('AirportCtrl', ['$scope', '$resource', 'Airport', function($scope, $resource, Airport){
+	$scope.airports = Airport.query();
 }]);
 
