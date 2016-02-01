@@ -4,7 +4,7 @@ module.factory('AirportService', ['$resource', function($resource) {
 		{
 			'query': {method: 'GET', isArray: true },
 			'get': {method: 'GET' },
-			'update': {method: 'PUT'}
+			'save': {method: 'PUT'}
 		}
 	);
 

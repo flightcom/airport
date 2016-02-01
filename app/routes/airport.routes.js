@@ -80,6 +80,6 @@ var AirportRoutes = function(router) {
 
 }
 
-var Airport = require('./airport.model.js');
+var Airport = require('../models/airport.model.js');
 
 module.exports = AirportRoutes;
