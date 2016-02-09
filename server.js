@@ -4,6 +4,7 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
+var router     = express.Router();          // get an instance of the express Router
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -14,19 +15,15 @@ var port = process.env.PORT || 8080;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
-var router = express.Router();              // get an instance of the express Router
-
 // ROUTES
 require('./app/routes/routes.js')(router);
 require('./app/routes/airport.routes.js')(router);
-
-// REGISTER OUR ROUTES -------------------------------
+// REGISTER OUR ROUTES
 app.use('/api', router);
 
 // CONNECT TO DABATASE
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost:27017/airports'); // connect to our database
-mongoose.connect('mongodb://root:tooroot@apollo.modulusmongo.net:27017/Wor4ubin')
+mongoose.connect("mongodb://node:node@apollo.modulusmongo.net:27017/hI4jyvat", function(err) { if (err) console.log(err); });
 
 // START THE SERVER
 // =============================================================================

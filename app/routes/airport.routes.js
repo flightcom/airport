@@ -1,3 +1,5 @@
+Airport = require('../models/airport.model.js');
+
 var AirportRoutes = function(router) {
 
     router.route('/airports')
@@ -10,11 +12,14 @@ var AirportRoutes = function(router) {
             airport.oaciCode = req.body.oaciCode;
             airport.createdAt = new Date();
             airport.updatedAt = airport.createdAt;
+            console.log('in post', airport);
 
             // save the airport and check for errors
             airport.save(function(err) {
-                if (err)
+                if (err) {
                     res.send(err);
+                    console.log('ERROR !');
+                }
 
                 res.json({ message: 'Airport created!' });
             });
@@ -23,12 +28,18 @@ var AirportRoutes = function(router) {
 
         // get all the airports (accessed at GET http://localhost:8080/api/airports)
         .get(function(req, res) {
+            console.log('in get', Airport);
             Airport.find(function(err, airports) {
-                if (err)
+                if (err) {
                     res.send(err);
+                    console.log('error get');
+                }
+                else 
+                    console.log('else get');
 
                 res.json(airports);
             });
+            console.log('end get');
         });
 
     router.route('/airports/:airport_id')
@@ -79,7 +90,5 @@ var AirportRoutes = function(router) {
         });
 
 }
-
-var Airport = require('../models/airport.model.js');
 
 module.exports = AirportRoutes;
