@@ -4,3 +4,6 @@ module.controller('AirportCtrl', ['$scope', '$resource', 'AirportService', funct
 	$scope.airports = AirportService.query();
 }]);
 
+module.controller('LoginCtrl', ['$scope', '$resource', 'AuthenticationService', function($scope, $resource, AuthenticationService){
+}]);
+

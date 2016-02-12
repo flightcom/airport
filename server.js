@@ -1,9 +1,10 @@
 // BASE SETUP
 // =============================================================================
 var express    = require('express');        // call express
-var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
+var app        = express();                 // define our app using express
 var router     = express.Router();          // get an instance of the express Router
+var router_api = express.Router();          // get an instance of the express Router
 var morgan     = require('morgan');
 var mongoose   = require('mongoose');
 var jwt        = require('jsonwebtoken'); // used to create, sign, and verify tokens
@@ -23,12 +24,14 @@ app.use(morgan('dev'));
 // ROUTES FOR OUR API
 // =============================================================================
 // Public routes
-require('./app/routes/routes.js')(app, router, jwt);
+require('./app/routes/default.routes')(app, router, jwt);
 // Private routes
-require('./app/routes/user.routes.js')(router);
-require('./app/routes/airport.routes.js')(router);
+require('./app/routes/default.api.routes')(app, router_api, jwt);
+require('./app/routes/user.routes')(router_api);
+require('./app/routes/airport.routes')(router_api);
 // REGISTER OUR ROUTES
-app.use('/api', router);
+app.use('/', router);
+app.use('/api', router_api);
 
 // START THE SERVER
 // =============================================================================
