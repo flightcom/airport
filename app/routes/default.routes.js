@@ -68,6 +68,22 @@ var DefaultRoutes = function(app, router, jwt) {
 		});
 	});
 
+	router.get('/about', function(req, res) {
+		res.render('pages/about');
+	});
+
+	router.get('/login', function(req, res) {
+		res.render('pages/template', {
+			main: 'login'
+		});
+	});
+
+	router.get('/airports', function(req, res) {
+		res.render('pages/template', {
+			main: 'airports'
+		});
+	});
+
 }
 
 module.exports = DefaultRoutes;

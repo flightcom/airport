@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container" ng-app="Airport">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <% include("../partials/" + main) %>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/components/airport/airport.service.js"></script>
+    <script type="text/javascript" src="app/components/airport/airport.directive.js"></script>
+    <script type="text/javascript" src="node_modules/angular-resource/angular-resource.min.js"></script>
+
+</body>
+</html>

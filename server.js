@@ -16,6 +16,7 @@ var User   = require('./app/models/user.model'); // get our mongoose model
 // =============================================================================
 var port = process.env.PORT || 8080;
 mongoose.connect(config.database);
+app.set('view engine', 'ejs');
 app.set('superSecret', config.secret); // secret variable
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -26,7 +27,7 @@ app.use(morgan('dev'));
 // Public routes
 require('./app/routes/default.routes')(app, router, jwt);
 // Private routes
-require('./app/routes/default.api.routes')(app, router_api, jwt);
+require('./app/routes/api.default.routes')(app, router_api, jwt);
 require('./app/routes/user.routes')(router_api);
 require('./app/routes/airport.routes')(router_api);
 // REGISTER OUR ROUTES
