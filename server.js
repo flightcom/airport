@@ -17,6 +17,7 @@ var User   = require('./app/models/user.model'); // get our mongoose model
 var port = process.env.PORT || 8080;
 mongoose.connect(config.database);
 app.set('view engine', 'ejs');
+app.set('views', __dirname + '/' + config.views + 'views')
 app.set('superSecret', config.secret); // secret variable
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

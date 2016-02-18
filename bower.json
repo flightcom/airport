@@ -1,8 +1,8 @@
 {
-  "name": "airport",
+  "name": "Airport",
   "description": "",
   "main": "server.js",
-  "license": "MIT",
+  "license": "proprietary",
   "homepage": "https://github.com/flightcom/airport",
   "moduleType": [],
   "ignore": [
@@ -13,7 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "^3.3.6",
-    "grunt": "^0.4.5"
+    "jquery": "^2.2.0",
+    "bootstrap": "^3.3.6"
   }
 }
